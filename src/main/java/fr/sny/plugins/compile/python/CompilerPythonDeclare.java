@@ -14,14 +14,13 @@ import fr.esgi.projet.softwareneedsyou.api.spi.InitialisationException;
  * @author Tristan
  *
  */
-public class CompilerExDeclare implements PluginCompilerDeclare {
+public class CompilerPythonDeclare implements PluginCompilerDeclare {
 	private final static UUID uid = UUID.fromString("d40a12f4-5c80-42f4-8b05-5a5b466c620c");
 
 	/**
 	 * 
 	 */
-	public CompilerExDeclare() {
-		// TODO Auto-generated constructor stub
+	public CompilerPythonDeclare() {
 	}
 
 	/* (non-Javadoc)
@@ -29,8 +28,7 @@ public class CompilerExDeclare implements PluginCompilerDeclare {
 	 */
 	@Override
 	public String getDescription() {
-		// TODO Auto-generated method stub
-		return "a example of description";
+		return "A basic Python Compiler.\nTests are not yet supported (future version).";
 	}
 
 	/* (non-Javadoc)
@@ -38,7 +36,6 @@ public class CompilerExDeclare implements PluginCompilerDeclare {
 	 */
 	@Override
 	public UUID getID() {
-		// TODO Auto-generated method stub
 		return uid;
 	}
 
@@ -46,9 +43,8 @@ public class CompilerExDeclare implements PluginCompilerDeclare {
 	 * @see fr.esgi.projet.softwareneedsyou.api.spi.PluginDescriptor#getInstance(java.util.Map)
 	 */
 	@Override
-	public PluginCompiler getInstance(Map<String, Object> arg0) throws InitialisationException {
-		// TODO Auto-generated method stub
-		return new CompilerEx();
+	public PluginCompiler getInstance(final Map<String, Object> params) throws InitialisationException {
+		return new CompilerPython();
 	}
 
 	/* (non-Javadoc)
@@ -56,8 +52,7 @@ public class CompilerExDeclare implements PluginCompilerDeclare {
 	 */
 	@Override
 	public String getResume() {
-		// TODO Auto-generated method stub
-		return "a short example";
+		return "A simple Python Compiler";
 	}
 
 }
