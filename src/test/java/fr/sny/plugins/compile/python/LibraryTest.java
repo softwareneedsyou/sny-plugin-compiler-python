@@ -4,15 +4,25 @@ package fr.sny.plugins.compile.python;
  */
 import org.junit.Test;
 
-import fr.sny.plugins.compile.python.CompilerPythonDeclare;
-
+import fr.esgi.projet.softwareneedsyou.api.ConsoleOutput;
+import fr.esgi.projet.softwareneedsyou.api.compiler.CompilerException;
+import fr.esgi.projet.softwareneedsyou.api.compiler.ResultCompiler;
 import static org.junit.Assert.*;
 
-import java.util.UUID;
+import java.io.PrintWriter;
 
 public class LibraryTest {
-    @Test public void testSomeLibraryMethod() {
-        CompilerPythonDeclare classUnderTest = new CompilerPythonDeclare();
-        assertTrue("yours tests here", UUID.fromString("00000000-0000-0000-0000-000000000000").compareTo(classUnderTest.getID()) == 0);
+    @Test
+    public void testLibraryCompiler() throws CompilerException, Exception {
+        CompilerPython compiler = new CompilerPython();
+        ResultCompiler result = compiler.compileAndTest("# test\ndef fn():\n\tprint('test')\n", null, new ConsoleOutput() {
+			@Override
+			public PrintWriter getWriter(final boolean isErr) {
+				return new PrintWriter(isErr ? System.err : System.out);
+			}
+		});
+        assertNotNull(result);
+        assertTrue(result.isCompileSuccess());
+        compiler.close();
     }
 }

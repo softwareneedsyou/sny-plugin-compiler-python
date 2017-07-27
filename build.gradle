@@ -6,7 +6,7 @@ repositories {
     jcenter()
 }
 
-version = '0.0.5'
+version = '0.1.2'
 project.group = 'fr.sny.example.plugin.compile'
 
 sourceCompatibility = JavaVersion.VERSION_1_8 //1.8

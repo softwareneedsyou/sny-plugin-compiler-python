@@ -6,6 +6,8 @@ package fr.sny.plugins.compile.python;
 import java.util.Map;
 import java.util.UUID;
 
+import org.kohsuke.MetaInfServices;
+
 import fr.esgi.projet.softwareneedsyou.api.compiler.PluginCompiler;
 import fr.esgi.projet.softwareneedsyou.api.compiler.PluginCompilerDeclare;
 import fr.esgi.projet.softwareneedsyou.api.spi.InitialisationException;
@@ -14,6 +16,7 @@ import fr.esgi.projet.softwareneedsyou.api.spi.InitialisationException;
  * @author Tristan
  *
  */
+@MetaInfServices
 public class CompilerPythonDeclare implements PluginCompilerDeclare {
 	private final static UUID uid = UUID.fromString("d40a12f4-5c80-42f4-8b05-5a5b466c620c");
 
